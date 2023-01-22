@@ -1,9 +1,9 @@
 [submodule "itom"]
 	path = itom
-	url = https://bitbucket.org/itom/itom
+	url = git@bitbucket.org:itom/itom
 [submodule "plugins"]
 	path = plugins
-	url = https://bitbucket.org/itom/plugins
+	url = git@bitbucket.org:itom/plugins
 [submodule "designerplugins"]
 	path = designerplugins
-	url = https://bitbucket.org/itom/designerplugins
+	url = git@bitbucket.org:itom/designerplugins
