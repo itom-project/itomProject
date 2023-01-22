@@ -11,8 +11,8 @@ In order to learn more about **itom**, see the official homepage [itom.bitbucket
 
 ### How do I get set up? ###
 
-* Clone this repositoriy [itomProject](http://bitbucket.org/itom/itomproject) and initialize the submodules and update them:
- > git clone http://bitbucket.org/itom/itomproject
+* Clone this repositoriy and initialize the submodules and update them:
+ > git clone git@bitbucket.org:itom/itomproject.git
  > git submodule init 
  > git submodule update
 
