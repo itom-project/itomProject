@@ -1,9 +1,12 @@
 [submodule "itom"]
 	path = itom
 	url = git@bitbucket.org:itom/itom
+	branch = master
 [submodule "plugins"]
 	path = plugins
 	url = git@bitbucket.org:itom/plugins
+	branch = master
 [submodule "designerplugins"]
 	path = designerplugins
 	url = git@bitbucket.org:itom/designerplugins
+	branch = master
