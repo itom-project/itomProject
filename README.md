@@ -13,10 +13,12 @@ In order to learn more about **itom**, see the official homepage [itom.bitbucket
 
 * Clone this repositoriy and initialize the submodules and update them:
 
-.. code-block:: bash  
+.. code-block:: bash
+
     git clone git@bitbucket.org:itom/itomproject.git
     git submodule init
     git submodule update
+
 
 For more specific information how to build itom, please take a look at the **itom** core submodule.
 
