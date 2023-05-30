@@ -16,7 +16,6 @@ In order to learn more about **itom**, see the official homepage [itom.bitbucket
     git clone --recursive git@github.com:itom-project/itomProject.git
     cd itomproject
     git submodule foreach --recursive git checkout master
-
 For more specific information how to build itom, please take a look at the **itom** core submodule.
 
 
