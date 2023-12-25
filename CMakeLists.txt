@@ -19,7 +19,7 @@
 
 cmake_minimum_required(VERSION 3.1.0)
 
-project(itomproject VERSION 1.0.13)
+project(itomproject VERSION 1.0.14)
 
 message(
     STATUS "------------------- PROJECT itomproject ---------------------")
@@ -28,4 +28,5 @@ message(
 
 add_subdirectory(itom)
 add_subdirectory(designerplugins)
+add_subdirectory(plugins)
 
