@@ -8,19 +8,22 @@ In order to learn more about **itom**, see the official homepage [itom-project.g
 
 * This repository is the main access to the itom core **itom** repository and it's affiliated side repositories **designerplugins** and **plugins**.
 
-
 ### How do I get set up? ###
-
-* Clone this repositoriy and initialize the submodules and update them:
-    ```
+* Clone this repositoriy and initialize the submodules and checkout the latest master them:
+```bash
     git clone --recursive --remote git@github.com:itom-project/itomProject.git
     cd itomProject
     git submodule foreach --recursive git checkout master
+```
+* To Clone a specific Tag please enter:
+```bash
+    git clone --recursive --remote --branch <tag_name> git@github.com:itom-project/itomProject.git
+```
+
+
 For more specific information how to build itom, please take a look at the **itom** core submodule.
 
-
 ## Contribution
-
 You are welcome to use and test [``itom``](https://itom-project.github.io/ "``itom``"). If you want to you are invited to participate in the development of [``itom``](https://itom-project.github.io/ "``itom``") or some of its plugins. If you found any bug, feel free to post an [issue](https://github.com/itom-project/itom/issues "issue").
 
 ### pre-commit hooks
