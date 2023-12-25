@@ -19,7 +19,7 @@
 
 cmake_minimum_required(VERSION 3.1.0)
 
-project(itomproject VERSION 1.0.12)
+project(itomproject VERSION 1.0.13)
 
 message(
     STATUS "------------------- PROJECT itomproject ---------------------")
@@ -27,4 +27,5 @@ message(
     STATUS "------------------- Version = ${CMAKE_PROJECT_VERSION} -----------------------\n")
 
 add_subdirectory(itom)
+add_subdirectory(designerplugins)
 
