@@ -19,24 +19,12 @@
 
 cmake_minimum_required(VERSION 3.1.0)
 
-project(itomproject VERSION 4.3.0)
+project(itomproject VERSION 1.0.11)
 
 message(
     STATUS "------------------- PROJECT itomproject ---------------------")
 message(
     STATUS "------------------- Version = ${CMAKE_PROJECT_VERSION} -----------------------\n")
 
-if(BUILD_QTVERSION STREQUAL "Qt6")
-    set(CMAKE_CXX_STANDARD 17)
-elseif(BUILD_QTVERSION STREQUAL "Qt5")
-    set(CMAKE_CXX_STANDARD 11)
-endif(BUILD_QTVERSION STREQUAL "Qt6")
-
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
-
 add_subdirectory(itom)
-add_subdirectory(designerplugins)
-add_subdirectory(plugins)
 

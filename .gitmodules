@@ -1,12 +1,4 @@
 [submodule "itom"]
 	path = itom
 	url = ../itom.git
-	branch = master
-[submodule "plugins"]
-	path = plugins
-	url = ../plugins.git
-	branch = master
-[submodule "designerplugins"]
-	path = designerplugins
-	url = ../designerPlugins.git
-	branch = master
+	branch = v1.0.11
