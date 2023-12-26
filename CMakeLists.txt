@@ -17,9 +17,9 @@
 # along with multipoint. If not, see <http://www.gnu.org/licenses/>.
 
 
-cmake_minimum_required(VERSION 3.1.0)
+cmake_minimum_required(VERSION 3.2.0)
 
-project(itomproject VERSION 3.1.0)
+project(itomproject VERSION 3.2.0)
 
 message(
     STATUS "------------------- PROJECT itomproject ---------------------")
