@@ -19,7 +19,7 @@
 
 cmake_minimum_required(VERSION 3.1.0)
 
-project(itomproject VERSION 4.2.0)
+project(itomproject VERSION 4.2.1)
 
 message(
     STATUS "------------------- PROJECT itomproject ---------------------")
