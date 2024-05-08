@@ -17,15 +17,22 @@
 # along with multipoint. If not, see <http://www.gnu.org/licenses/>.
 
 
-cmake_minimum_required(VERSION 3.1.0)
-
-project(itomproject VERSION 4.3.0)
+cmake_minimum_required(VERSION 3.12...3.29)
 
 message(
-    STATUS "------------------- PROJECT itomproject ---------------------")
-message(
-    STATUS "------------------- Version = ${CMAKE_PROJECT_VERSION} -----------------------\n")
+    STATUS "------------------- PROJECT ItomProject ---------------------")
+# Retrieve Version Number and Identifier from GIT-TAG
+include(itom/cmake/VersionFromGit.cmake)
+version_from_git(
+  LOG       ON
+  TIMESTAMP "%Y%m%d%H%M%S"
+)
 
+# define cmake project and version number
+project(itomproject VERSION ${GIT_VERSION})
+
+message(
+    STATUS "------------------- Version = ${itomproject_VERSION} -----------------------\n")
 if(BUILD_QTVERSION STREQUAL "Qt6")
     set(CMAKE_CXX_STANDARD 17)
 elseif(BUILD_QTVERSION STREQUAL "Qt5")
