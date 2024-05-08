@@ -39,4 +39,5 @@ message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
 add_subdirectory(itom)
 add_subdirectory(designerplugins)
 add_subdirectory(plugins)
+add_subdirectory(ITOM_PrivatePlugins)
 
