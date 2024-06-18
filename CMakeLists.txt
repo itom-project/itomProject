@@ -1,4 +1,4 @@
-# - itomproject software - 
+# - itomproject software -
 # URL: http://www.uni-stuttgart.de/ito
 # Copyright (C) 2022, Institut fuer Technische Optik (ITO),
 # Universitaet Stuttgart, Germany
@@ -21,7 +21,7 @@ cmake_minimum_required(VERSION 3.12...3.29)
 
 message(
     STATUS "------------------- PROJECT ItomProject ---------------------")
-    
+
 # Retrieve Version Number and Identifier from GIT-TAG
 include(itom/cmake/VersionFromGit.cmake)
 version_from_git(
@@ -44,8 +44,22 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
 
-add_subdirectory(itom)
-add_subdirectory(designerplugins)
-add_subdirectory(plugins)
-add_subdirectory(ITOM_PrivatePlugins)
+option(BUILD_ITOM_CORE "Build the itom core library and executeables." ON)
+if(BUILD_ITOM_CORE )
+    add_subdirectory(itom)
+endif(BUILD_ITOM_CORE )
 
+option(BUILD_ITOM_DESIGNERPLUGINS "Build the itom Designerplugins." ON)
+if(BUILD_ITOM_DESIGNERPLUGINS )
+    add_subdirectory(designerplugins)
+endif(BUILD_ITOM_DESIGNERPLUGINS)
+
+option(BUILD_ITOM_PLUGINS "Build the itom plugins." ON)
+if(BUILD_ITOM_PLUGINS )
+    add_subdirectory(plugins)
+endif(BUILD_ITOM_PLUGINS)
+
+option(BUILD_ITOM_PRIVATEPLUGINS "Build the itom private plugins." OFF)
+if(BUILD_ITOM_PRIVATEPLUGINS )
+    add_subdirectory(ITOM_PrivatePlugins)
+endif(BUILD_ITOM_PRIVATEPLUGINS)
