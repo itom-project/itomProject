@@ -60,7 +60,7 @@ All plugins and designer-plugins that can be integrated into itom can have their
 
 > Germany
 
-in co-operation with 
+in co-operation with
 > [twip Optical Solutions GmbH](http://www.twip-os.com)
 
 > Stuttgart
