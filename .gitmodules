@@ -10,3 +10,6 @@
 	path = plugins
 	url = ../plugins.git
 	branch = master
+[submodule "external"]
+	path = external
+	url = git@github.com:itom-project/external.git

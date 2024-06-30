@@ -1,4 +1,4 @@
-# - itomproject software - 
+# - itomproject software -
 # URL: http://www.uni-stuttgart.de/ito
 # Copyright (C) 2022, Institut fuer Technische Optik (ITO),
 # Universitaet Stuttgart, Germany
@@ -21,7 +21,7 @@ cmake_minimum_required(VERSION 3.12...3.29)
 
 message(
     STATUS "------------------- PROJECT ItomProject ---------------------")
-    
+
 # Retrieve Version Number and Identifier from GIT-TAG
 include(itom/cmake/VersionFromGit.cmake)
 version_from_git(
@@ -42,8 +42,20 @@ endif(BUILD_QTVERSION STREQUAL "Qt6")
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
+#option(ENABLE_DOC "Enable Documentation" OFF)
+option(ENABLE_EXTERNAL "External Dependencies" ON)
 
-add_subdirectory(itom)
-add_subdirectory(designerplugins)
-add_subdirectory(plugins)
+if(ENABLE_EXTERNAL) # This should comprise: Qt, boost, pcl, vtk, eigen, flann, glew, pcap and qhull
+    include(external_setup)
+    if(NOT EXTERNAL_FLAG_BUILD_COMPLETE)
+        return()
+    endif(NOT EXTERNAL_FLAG_BUILD_COMPLETE)
+else(ENABLE_EXTERNAL)
+    include(external_versions)
+    include(external_components)
+    include(external_find_packages)
+endif(ENABLE_EXTERNAL)
+
+#add_subdirectory(itom)
+#add_subdirectory(designerplugins)
+#add_subdirectory(plugins)
