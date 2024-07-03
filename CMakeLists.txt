@@ -45,6 +45,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #option(ENABLE_DOC "Enable Documentation" OFF)
 option(ENABLE_EXTERNAL "External Dependencies" ON)
 
+list(APPEND CMAKE_MODULE_PATH
+    "${CMAKE_CURRENT_LIST_DIR}/cmake"
+    "${CMAKE_CURRENT_LIST_DIR}/external"
+    "${CMAKE_CURRENT_LIST_DIR}/external/cmake"
+    "${CMAKE_CURRENT_LIST_DIR}/external/cmake/modules"
+    "${CMAKE_SOURCE_DIR}/cmake/modules/")
+
+
 if(ENABLE_EXTERNAL) # This should comprise: Qt, boost, pcl, vtk, eigen, flann, glew, pcap and qhull
     include(external_setup)
     if(NOT EXTERNAL_FLAG_BUILD_COMPLETE)
