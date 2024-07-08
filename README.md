@@ -29,12 +29,15 @@ You are welcome to use and test [``itom``](https://itom-project.github.io/ "``it
 ### pre-commit hooks
 After the first cloning of the repositories, the [pre-commit](https://pre-commit.com/ "pre-commit") hooks should be installed once.
 ```bash
-python -m pre_commit install
+pip install pre-commit
 ```
 #### (optional) run against all files
 It's usually a good idea to run the hooks against all of the files when adding new hooks (usually ``pre-commit`` will only run on the changed files during git hooks).
+Tehrefore got to the main folder of the respective itom repository (e.g. itomProject, itom, plugins or designerplugins), which includes the ``pre-commit`` configuration
+file **.pre-commit-config.yaml**. Then run:
+
 ```bash
-python -m pre_commit run --all-files
+pre_commit run --all-files
 ```
 
 # Licensing
@@ -57,7 +60,7 @@ All plugins and designer-plugins that can be integrated into itom can have their
 
 > Germany
 
-in co-operation with 
+in co-operation with
 > [twip Optical Solutions GmbH](http://www.twip-os.com)
 
 > Stuttgart

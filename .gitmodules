@@ -2,11 +2,14 @@
 	path = itom
 	url = ../itom.git
 	branch = master
-[submodule "designerplugins"]
-	path = designerplugins
-	url = ../designerPlugins.git
-	branch = master
 [submodule "plugins"]
 	path = plugins
 	url = ../plugins.git
 	branch = master
+[submodule "designerplugins"]
+	path = designerplugins
+	url = ../designerPlugins.git
+	branch = master
+[submodule "ITOM_PrivatePlugins"]
+	path = ITOM_PrivatePlugins
+	url = git@github.tik.uni-stuttgart.de:ito/ITOM_PrivatePlugins.git
