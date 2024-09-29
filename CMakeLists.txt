@@ -44,7 +44,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
 
-option(BUILD_ITOM_CORE "Build the itom core library and executeables." ON)
+option(BUILD_ITOM_CORE "Build the itom core library and executables." ON)
 if(BUILD_ITOM_CORE )
     add_subdirectory(itom)
 endif(BUILD_ITOM_CORE )
