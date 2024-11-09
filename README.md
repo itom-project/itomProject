@@ -37,7 +37,7 @@ Tehrefore got to the main folder of the respective itom repository (e.g. itomPro
 file **.pre-commit-config.yaml**. Then run:
 
 ```bash
-pre_commit run --all-files
+pre-commit run --all-files
 ```
 
 # Licensing
