@@ -10,3 +10,7 @@
 	path = designerplugins
 	url = ../designerPlugins.git
 	branch = master
+[submodule "external"]
+	path = external
+	url = ../external.git
+	branch = master
