@@ -44,6 +44,26 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
 
+option(BUILD_ITOM_EXTERNAL "Build the itom external dependencies." OFF)
+
+list(APPEND CMAKE_MODULE_PATH
+    "${CMAKE_CURRENT_LIST_DIR}/cmake"
+    "${CMAKE_CURRENT_LIST_DIR}/external"
+    "${CMAKE_CURRENT_LIST_DIR}/external/cmake"
+    "${CMAKE_CURRENT_LIST_DIR}/external/cmake/modules"
+    "${CMAKE_SOURCE_DIR}/cmake/modules/")
+
+if(BUILD_ITOM_EXTERNAL)
+    include(external_setup)
+    if(NOT EXTERNAL_FLAG_BUILD_COMPLETE)
+        return()
+    endif(NOT EXTERNAL_FLAG_BUILD_COMPLETE)
+else(BUILD_ITOM_EXTERNAL)
+    include(external_versions)
+    include(external_components)
+    include(external_find_packages)
+endif(BUILD_ITOM_EXTERNAL)
+
 option(BUILD_ITOM_CORE "Build the itom core library and executables." ON)
 if(BUILD_ITOM_CORE )
     add_subdirectory(itom)
