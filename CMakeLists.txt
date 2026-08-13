@@ -44,6 +44,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
 
+# Enable solution folders in the Visual Studio generator and move the
+# Qt AUTOMOC/AUTOUIC/AUTORCC helper targets (<Target>_autogen and
+# <Target>_autogen_timestamp_deps) into a dedicated folder so they no longer
+# clutter the top level of the solution.
+# These global properties are supported across CMake 3.12 up to 4.x.
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "autogen")
+set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "CMakePredefinedTargets")
+
 option(ENABLE_ITOM_EXTERNAL "Enable the the itom external dependencies." OFF)
 option(BUILD_ITOM_EXTERNAL "Build with the itom external dependencies." OFF)
 
@@ -70,20 +79,50 @@ endif(ENABLE_ITOM_EXTERNAL)
 
 option(BUILD_ITOM_CORE "Build the itom core library and executables." ON)
 if(BUILD_ITOM_CORE )
+    set(CMAKE_FOLDER "itom")
     add_subdirectory(itom)
 endif(BUILD_ITOM_CORE )
 
 option(BUILD_ITOM_DESIGNERPLUGINS "Build the itom Designerplugins." ON)
 if(BUILD_ITOM_DESIGNERPLUGINS )
+    set(CMAKE_FOLDER "designerPlugins")
     add_subdirectory(designerplugins)
 endif(BUILD_ITOM_DESIGNERPLUGINS)
 
 option(BUILD_ITOM_PLUGINS "Build the itom plugins." ON)
 if(BUILD_ITOM_PLUGINS )
+    set(CMAKE_FOLDER "plugins")
     add_subdirectory(plugins)
 endif(BUILD_ITOM_PLUGINS)
 
 option(BUILD_ITOM_PRIVATEPLUGINS "Build the itom private plugins." OFF)
 if(BUILD_ITOM_PRIVATEPLUGINS )
+    set(CMAKE_FOLDER "ITOM_PrivatePlugins")
     add_subdirectory(ITOM_PrivatePlugins)
 endif(BUILD_ITOM_PRIVATEPLUGINS)
+
+# ---------------------------------------------------------------------------
+# Move the Qt AUTOMOC/AUTOUIC/AUTORCC helper targets (<Target>_autogen and
+# <Target>_autogen_timestamp_deps) into a dedicated solution folder.
+#
+# The CMAKE_AUTOGEN_TARGETS_FOLDER variable alone is not reliable here
+# (especially for the newer *_autogen_timestamp_deps targets and when targets
+# are created in sub directories), therefore we walk over every target that has
+# been defined and assign its FOLDER property explicitly. This must run AFTER
+# all add_subdirectory() calls so that all targets already exist.
+# ---------------------------------------------------------------------------
+function(itom_group_autogen_targets dir)
+    get_property(subdirs DIRECTORY "${dir}" PROPERTY SUBDIRECTORIES)
+    foreach(subdir IN LISTS subdirs)
+        itom_group_autogen_targets("${subdir}")
+    endforeach()
+
+    get_property(targets DIRECTORY "${dir}" PROPERTY BUILDSYSTEM_TARGETS)
+    foreach(target IN LISTS targets)
+        if(target MATCHES "_autogen(_timestamp_deps)?$")
+            set_target_properties(${target} PROPERTIES FOLDER "autogen")
+        endif()
+    endforeach()
+endfunction()
+
+itom_group_autogen_targets("${CMAKE_CURRENT_SOURCE_DIR}")
